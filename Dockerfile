@@ -1,12 +1,5 @@
-FROM ubuntu:12.04
+FROM node:9.11.1-slim
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get -y install build-essential
-RUN apt-get -y install python-software-properties
-RUN add-apt-repository -y ppa:chris-lea/node.js
-RUN apt-get update
-RUN apt-get -y install nodejs
 
 WORKDIR /opt/app
 ADD . /opt/app
