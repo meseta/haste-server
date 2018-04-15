@@ -1,5 +1,4 @@
-FROM node:9.11.1-slim
-
+FROM node:9.11.1
 
 WORKDIR /opt/app
 ADD . /opt/app
