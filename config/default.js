@@ -23,7 +23,7 @@ module.exports = {
   },
 
   storage: {
-    type: "postgres",
+    type: "googledatastore",
   },
 
   documents: {
