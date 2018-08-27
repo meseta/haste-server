@@ -1,7 +1,7 @@
 FROM node:9.11.1
 
 # build highlightjs
-RUN git clone git@github.com:meseta/highlight.js.git /hljs_build
+RUN git clone https://github.com/meseta/highlight.js.git /hljs_build
 WORKDIR /hljs_build
 
 RUN npm install
