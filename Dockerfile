@@ -1,4 +1,4 @@
-FROM node:9.11.1
+FROM node:10.9.0-alpine
 
 # build highlightjs
 RUN git clone https://github.com/meseta/highlight.js.git /hljs_build
@@ -7,13 +7,15 @@ WORKDIR /hljs_build
 RUN npm install
 RUN node tools/build.js -n cpp css glsl gml javascript json xml markdown python ruby yaml
 
+# copy hljs over
+RUN mkdir -p /opt/app/static
+RUN cp /hljs_build/build/highlight.pack.js /opt/app/static/highlight.pack.js
+RUN rm -rf /hljs_build
+
 # create haste
 WORKDIR /opt/app
 ADD . /opt/app
 
-# copy hljs over
-RUN cp /hljs_build/build/highlight.pack.js /opt/app/static/highlight.pack.js
-RUN rm -rf /hljs_build
 
 ENV NODE_ENV docker
 
