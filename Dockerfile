@@ -9,7 +9,7 @@ RUN node tools/build.js -n cpp css glsl gml javascript json xml markdown python 
 RUN mkdir -p /opt/app/static
 RUN cp /hljs_build/build/highlight.pack.js /opt/app/static/highlight.pack.js
 
-RUN rmdir -rf /hljs_build
+RUN rm -rf /hljs_build
 
 # create haste
 WORKDIR /opt/app
