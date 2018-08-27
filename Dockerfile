@@ -1,6 +1,8 @@
 FROM node:10.9.0-alpine
 
 # build highlightjs
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
 RUN git clone https://github.com/meseta/highlight.js.git /hljs_build
 WORKDIR /hljs_build
 
